@@ -5,7 +5,7 @@
 <?php include_once(__DIR__ . './include/header.php'); ?>
 
 <main>
-    <h1>Projet final</h1>
+    <h1>Les Chalets du Québec</h1>
 
     <!-- Chalets sous forme de cartes -->
     <!-- Affiche 6 chalets ACTIFS et en PROMOTION en ordre aléatoire. Indice : https://www.mysqltutorial.org/select-random-records-database-table.aspx  -->
