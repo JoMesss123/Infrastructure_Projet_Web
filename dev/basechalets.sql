@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mar. 11 juil. 2023 à 23:36
+-- Généré le : sam. 15 juil. 2023 à 13:15
 -- Version du serveur : 8.0.31
 -- Version de PHP : 7.4.33
 
@@ -47,6 +47,30 @@ INSERT INTO `activites` (`id`, `nom_activite`, `description_activite`, `hiver_ac
 (6, 'STATION TOURISTIQUE FLORIBELL – PLAGE', 'Imaginez un endroit où l’on retrouve un lac naturel reconnu pour son eau cristalline et un décor enchanteur. ', 0, 1, 2),
 (7, ' Alpagas du Domaine Poissant', 'Bienvenue chez Alpagas du Domaine Poissant ! Vivez des balades inoubliables en compagnie des adorables alpagas.', 0, 1, 3),
 (8, ' Parc Safari', 'Venez profiter de l’été au Parc Safari : Visitez le tunnel des félins qui reste un attrait extraordinaire ! ', 0, 1, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `administrateur`
+--
+
+CREATE TABLE `administrateur` (
+  `id` int NOT NULL,
+  `administrateur` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `mot_de_passe` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `courriel` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `administrateur`
+--
+
+INSERT INTO `administrateur` (`id`, `administrateur`, `mot_de_passe`, `courriel`) VALUES
+(1, 'admin', '$2y$10$JgqzBMVBFBVeJjz20cyFH.cIk5wS32dDrF4IvFldh0IhSt8Bt10b.', 'jomesss123@hotmail.com'),
+(2, 'admin', '$2y$10$/ggrwaIfQOYaoIxB6/rvC./Cj3haruxtii08H6RmnftAlefCEBWUe', 'jomesss123456789@gmail.com'),
+(3, 'root', '$2y$10$/2FapHhpLtAfeXpX66ZLy.HLdDkqyWBoT7TaYS2y5uZAEBRwOCy7W', 'marieyannickboyer01@gmail.com'),
+(4, 'jonathan', '$2y$10$wyXeBfSa/eFRmt3XSpCIj..B29LJTzEnZdXxVhn0sm4P0MeVtX3vm', 'jomesss123456789@gmail.com'),
+(5, 'jonathan', '$2y$10$P96SnMmPpbpxjj0gLtvQoeIQVxrNt1Tafiq1KY1LzSfsF2mBdnubi', 'jomesss123456789@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -145,7 +169,7 @@ INSERT INTO `regions` (`id`, `nom`) VALUES
 CREATE TABLE `utilisateurs` (
   `id` int NOT NULL,
   `code_utilisateur` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `mot_de_passe` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `mot_de_passe` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `courriel` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -154,8 +178,7 @@ CREATE TABLE `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`id`, `code_utilisateur`, `mot_de_passe`, `courriel`) VALUES
-(1, 'master', 'master', 'master@hotmail.com'),
-(2, 'master', 'admin', 'jomesss123@hotmail.com');
+(9, 'admin', '$2y$10$OCPedqtkGSNqeAKwJEUHkO5ElTjdrX8pjibT0SDlK0oP0.GcoPuXW', 'jomesss123@hotmail.com');
 
 --
 -- Index pour les tables déchargées
@@ -167,6 +190,12 @@ INSERT INTO `utilisateurs` (`id`, `code_utilisateur`, `mot_de_passe`, `courriel`
 ALTER TABLE `activites`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_region` (`fk_region`);
+
+--
+-- Index pour la table `administrateur`
+--
+ALTER TABLE `administrateur`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `avis`
@@ -205,6 +234,12 @@ ALTER TABLE `activites`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT pour la table `administrateur`
+--
+ALTER TABLE `administrateur`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT pour la table `avis`
 --
 ALTER TABLE `avis`
@@ -226,7 +261,7 @@ ALTER TABLE `regions`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Contraintes pour les tables déchargées
