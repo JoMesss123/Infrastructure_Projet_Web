@@ -64,7 +64,7 @@ class ControlleurBaseChalet {
         if(isset($_GET["id"])) {
             $chalet = modele_chalet::ObtenirUn($_GET["id"]);
             if($chalet) {  
-                require './vues/chalet/formulaireEdition.php';
+                require './vues/chalets/formulaireEdition.php';
             } else {
                 $erreur = "Aucun chalet trouvé";
                 require './vues/erreur.php';

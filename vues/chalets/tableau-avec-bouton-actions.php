@@ -31,7 +31,7 @@
             <td>
                 <a href="fiche_chalet.php?id=<?= $chalets->id ?>">Afficher</a>
                 | 
-                <a href="vues/chalets/formulaireEdition.php?id=<?= $chalets->id ?>">Modifier</a> 
+                <a href="edition_chalet.php?id=<?= $chalets->id ?>">Editer</a>
                 | 
                 <a href="suppression_chalet.php?id=<?= $chalets->id ?>">Supprimer</a>
             </td>
