@@ -1,3 +1,5 @@
+
+ 
 <div class="container">
     <h1>Éditer un chalet</h1>
     <form method="POST">
@@ -5,7 +7,7 @@
             <div>
                 <label for="nom">Nom *</label>
                
-                <input type="text" id="nom" name="nom" required maxlength="25" value="<?= $chalet->nom ?>">
+                <input type="text" id="nom" name="nom" required maxlength="50" value="<?= $chalet->nom ?>">
             </div>
             <div>
                 <label for="description">Description *</label>
@@ -50,8 +52,17 @@
                 
                 <input type="number" step="1" id="fk_region" name="fk_region" required value="<?= $chalet->fk_region ?>">
             </div>
+            <div>
+                <label for="id_picsum">picsum *</label>
+                
+                <input type="number" step="1" id="id_picsum" name="id_picsum" required value="<?= $chalet->id_picsum ?>">
+            </div>
         </div>
 
         <button name="boutonEditer" type="submit">Modifier le chalet</button><br>
     </form>                         
 </div>
+
+
+
+	

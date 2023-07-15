@@ -185,7 +185,7 @@ class modele_chalet {
         $mysqli = self::connecter();
         
        
-        if ($requete = $mysqli->prepare("INSERT INTO chalets(id, nom, description, personnes_max, prix_haute_saison, prix_basse_saison, actif, promo, date_inscription, fk_region, id_picsum) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {      
+        if ($requete = $mysqli->prepare("INSERT INTO chalets(id, nom, description, personnes_max, prix_haute_saison, prix_basse_saison, actif, promo, date_inscription, fk_region, id_picsum) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {      
 
 
 

@@ -29,6 +29,9 @@
         $ControlleurAvis->afficherTableauAvecBoutonsAction();
     ?>
 
+	<h1>Administration - Chalets</h1>
+	<? require 'vues/chalets/ajout_chalet.php'; ?>
+
 	<?php
 		$ControlleurBaseChalets=new ControlleurBaseChalet;
 		$ControlleurBaseChalets->afficherTableauAvecBoutonsAction();

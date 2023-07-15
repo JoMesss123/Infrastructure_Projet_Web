@@ -10,6 +10,7 @@
         <th>promo</th>
         <th>date inscription</th>
         <th>fk region</th>
+        <th>id picsum</th>
 
     </tr>
 
@@ -25,11 +26,12 @@
             <td><?= $chalets->actif ?></td>
             <td><?= $chalets->promo ?></td>
             <td><?= $chalets->date_inscription ?></td>
-            <td><?= $chalets->nom_region ?>></td>
+            <td><?= $chalets->nom_region ?></td>
+            <td><?= $chalets->id_picsum ?></td>
             <td>
                 <a href="fiche_chalet.php?id=<?= $chalets->id ?>">Afficher</a>
                 | 
-                <a href="edition_chalet.php?id=<?= $chalets->id ?>">Modifier</a> 
+                <a href="vues/chalets/formulaireEdition.php?id=<?= $chalets->id ?>">Modifier</a> 
                 | 
                 <a href="suppression_chalet.php?id=<?= $chalets->id ?>">Supprimer</a>
             </td>
