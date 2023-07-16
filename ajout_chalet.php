@@ -1,7 +1,7 @@
 <?php
     require_once 'controlleurs/ControlleurBaseChalet.php';
 
-    if (isset($_POST['boutonAjouter'])) {        
+    if (isset($_POST['boutonAjouterChalet'])) {        
         $controlleurBaseChalet=new ControlleurBaseChalet;
         $controlleurBaseChalet->ajouter();
     }
@@ -32,7 +32,7 @@
     <div>
       <label for="prix_haute_saison">prix haute saison *</label>
       <!-- Attention! Vos validations doivent être cohérentes avec le champ correspondant dans la BD! -->
-      <input type="number" step=".01" id="prix_haute_saison" name="prix_haute_saison" required>
+      <input type="number" step="1" id="prix_haute_saison" name="prix_haute_saison" required>
     </div>
     <div>
       <label for="prix_basse_saison">prix basse saison</label>
@@ -50,9 +50,13 @@
       <input type="number" id="promo" name="promo" required>
     </div>
     <div>
-      <label for="id_region">id region *</label>
+      <label for="date_inscription">date d'inscription *</label>
       <!-- Attention! Vos validations doivent être cohérentes avec le champ correspondant dans la BD! -->
-      <input type="number" id="id_region" name="id_region" required>
+      <input type="date" id="date_inscription" name="date_inscription" required>
+    <div>
+      <label for="fk_region">fk region *</label>
+      <!-- Attention! Vos validations doivent être cohérentes avec le champ correspondant dans la BD! -->
+      <input type="number" id="fk_region" name="fk_region" required>
     </div>
     <div>
       <label for="id_picsum">picsum *</label>
@@ -63,7 +67,7 @@
 
   </div>
 
-  <button name="boutonAjouter" type="submit">Ajouter le chalet</button><br>
+  <button name="boutonAjouterChalet" type="submit">Ajouter le chalet</button><br>
 </form>
 
 

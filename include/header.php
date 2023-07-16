@@ -47,7 +47,7 @@
         <li><a href="index.php">Accueil</a></li>
         <li><a href="liste_chalets.php">Chalets à louer</a></li>
         <li>
-          <a href="liste_chalets_par_region.php">Chalets par région &nbsp;<i class="arrow down"></i></a>
+          <a href="#">Chalets par région &nbsp;<i class="arrow down"></i></a>
           <ul>
           <?php
         $ControlleurRegion=new ControlleurRegion;

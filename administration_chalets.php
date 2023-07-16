@@ -24,24 +24,27 @@
         Vous êtes connecté en tant qu'administrateur <?= $_SESSION["administrateur"] ?> 
         
     </form>
+	<h1> Avis</h1>
 	<?php
         $ControlleurAvis=new ControlleurAvis;
         $ControlleurAvis->afficherTableauAvecBoutonsAction();
     ?>
 
-	<h1>Administration - Chalets</h1>
-	<? require 'vues/chalets/ajout_chalet.php'; ?>
+	<h1> Chalets</h1>
+	<? require 'ajout_chalet.php'; ?>
 
 	<?php
 		$ControlleurBaseChalets=new ControlleurBaseChalet;
 		$ControlleurBaseChalets->afficherTableauAvecBoutonsAction();
 	?>
 
+	<h1> Activités</h1>
 	<?php
 	$ControlleurActivite=new ControlleurActivite;
 	$ControlleurActivite->afficherTableauAvecBoutonsAction();
 	?>
 
+	<h1> Régions</h1>
 	<?php
 	$ControlleurRegion=new ControlleurRegion;
 	$ControlleurRegion->afficherTableauAvecBoutonsAction();

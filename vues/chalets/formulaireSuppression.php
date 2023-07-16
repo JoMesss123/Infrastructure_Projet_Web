@@ -1,9 +1,9 @@
 
 <div class="card">
-  <img src="https://picsum.photos/200" alt="une photo aléatoire">
+  <img src="https://picsum.photos/<?= $chalet->id_picsum ?>" alt="une photo aléatoire">
   <div class="container">
     <h3><b>Nom du chalet : <?= $chalet->nom ?></b></h3>
-    <h4>actif: <?= $chalet->actif ?>$</h4>
+    <h4>actif: <?= $chalet->actif ?></h4>
   </div>
 </div>
 

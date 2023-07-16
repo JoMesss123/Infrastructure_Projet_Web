@@ -65,15 +65,6 @@ class modele_authentification {
        
         if ($requete = $mysqli->prepare("INSERT INTO utilisateurs(code_utilisateur, mot_de_passe,  courriel) VALUES(?, ?, ?)")) {      
 
-        /************************* ATTENTION **************************/
-        /* On ne fait présentement peu de validation des données.     */
-        /* On revient sur cette partie dans les prochaines semaines!! */
-        /**************************************************************/
-
-        // Pour débogage :
-        //echo $mot_de_passe . "<br>";
-        //echo password_hash("test", PASSWORD_DEFAULT) . "<br>";
-
         $mot_de_passe_crypte = password_hash($mot_de_passe, PASSWORD_DEFAULT);
 
         $requete->bind_param("sss", $code_utilisateur, $mot_de_passe_crypte, $courriel);

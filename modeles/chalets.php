@@ -93,6 +93,19 @@ class modele_chalet {
         return $liste;
     }
 
+    public static function ObtenirTousAdmin() {
+        $liste = [];
+        $mysqli = self::connecter();
+
+        $resultatRequete = $mysqli->query("SELECT id, nom, description, personnes_max, prix_haute_saison, prix_basse_saison, actif, promo, date_inscription, fk_region, id_picsum FROM chalets  ORDER BY fk_region, nom");
+
+        foreach ($resultatRequete as $enregistrement) {
+            $liste[] = new modele_chalet($enregistrement['id'], $enregistrement['nom'], $enregistrement['description'],$enregistrement['personnes_max'], $enregistrement['prix_haute_saison'], $enregistrement['prix_basse_saison'], $enregistrement['actif'], $enregistrement['promo'], $enregistrement['date_inscription'], $enregistrement['fk_region'], $enregistrement['id_picsum']);
+        }
+
+        return $liste;
+    }
+
     public static function ObtenirTousPromo() {
         $liste = [];
         $mysqli = self::connecter();
@@ -179,17 +192,17 @@ class modele_chalet {
     
 
    
-    public static function ajouter($id, $nom, $description, $personnes_max, $prix_haute_saison, $prix_basse_saison, $actif, $promo, $date_inscription, $fk_region, $id_picsum) {
+    public static function ajouter( $nom, $description, $personnes_max, $prix_haute_saison, $prix_basse_saison, $actif, $promo, $date_inscription, $fk_region, $id_picsum) {
         $message = '';
 
         $mysqli = self::connecter();
         
        
-        if ($requete = $mysqli->prepare("INSERT INTO chalets(id, nom, description, personnes_max, prix_haute_saison, prix_basse_saison, actif, promo, date_inscription, fk_region, id_picsum) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {      
+        if ($requete = $mysqli->prepare("INSERT INTO chalets( nom, description, personnes_max, prix_haute_saison, prix_basse_saison, actif, promo, date_inscription, fk_region, id_picsum) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {      
 
 
 
-        $requete->bind_param("issiiiiisii",$id, $nom, $description, $personnes_max, $prix_haute_saison, $prix_basse_saison, $actif, $promo, $date_inscription, $fk_region, $id_picsum);
+        $requete->bind_param("ssiiiiisii", $nom, $description, $personnes_max, $prix_haute_saison, $prix_basse_saison, $actif, $promo, $date_inscription, $fk_region, $id_picsum);
 
         if($requete->execute()) { 
             $message = "Chalets ajouté";  
