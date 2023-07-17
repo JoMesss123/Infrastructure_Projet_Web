@@ -1,12 +1,13 @@
 <!-- Affichage en mode "tableau" -->
-<h2>Affichage en mode "tableau"</h2>
+
 <table>
     <tr>
         <th>nom</th>        
         <th>prenom</th>        
-        <th>date de l'avis</th>        
+        <th>date_avis</th>        
         <th>description</th>       
-        <th>l'activitée</th>
+        <th>activite</th>
+        <th>utilisateur</th>
 
     </tr>
 
@@ -18,12 +19,15 @@
             <td><?= $avis->prenom ?></td>
             <td><?= $avis->date_avis ?></td>
             <td><?= $avis->description ?></td>
-            <td><a href="fiche_activite.php?id=<?= $avis->id_activite ?>"><?= $avis->nom_activite ?></a></td>
+            <td><?= $avis->nom_activite ?></td>
+            <td><?= $avis->utilisateur ?></td>
 
             <td>
                 <a href="fiche_avis.php?id=<?= $avis->id ?>">Afficher</a>
                 | 
-                
+                <a href="edition_avis.php?id=<?= $avis->id ?>">Modifier</a> 
+                | 
+                <a href="suppression_avis.php?id=<?= $avis->id ?>">Supprimer</a>
             </td>
         </tr>
     <?php

@@ -4,6 +4,11 @@ require_once './modeles/region.php';
 
 class ControlleurRegion {
 
+    function afficherListeDeroulanteRegion() {
+        $region = modele_region::ObtenirTous();
+        require  __DIR__ . '/../vues/region/liste-deroulante.php';
+    }
+
     
     function afficherListe() {
         $region = modele_region::ObtenirTous();
@@ -51,7 +56,7 @@ class ControlleurRegion {
         if(isset($_GET["id"])) {
             $region = modele_region::ObtenirUn($_GET["id"]);
             if($region) {  
-                require './vues/chalet/formulaireEdition.php';
+                require './vues/region/formulaireEdition.php';
             } else {
                 $erreur = "Aucune région trouvée";
                 require './vues/erreur.php';
@@ -77,8 +82,8 @@ class ControlleurRegion {
 
     
     function ajouter() {
-        if(isset($_GET['id'],$_POST['nom']) ) {
-            $message = modele_region::ajouter($_GET['id'],$_POST['nom']);
+        if(isset($_POST['nom']) ) {
+            $message = modele_region::ajouter($_POST['nom']);
             echo $message;
         } else {
             $erreur = "Impossible d'ajouter une région. Des informations sont manquantes";

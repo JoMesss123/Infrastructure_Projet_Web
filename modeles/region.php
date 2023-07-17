@@ -122,17 +122,17 @@ class modele_region {
     
 
    
-    public static function ajouter($id, $nom) {
+    public static function ajouter( $nom) {
         $message = '';
 
         $mysqli = self::connecter();
         
        
-        if ($requete = $mysqli->prepare("INSERT INTO regions(id, nom) VALUES(?, ?)")) {      
+        if ($requete = $mysqli->prepare("INSERT INTO regions( nom) VALUES( ?)")) {      
 
 
 
-        $requete->bind_param("is",$id, $nom);
+        $requete->bind_param("s", $nom);
 
         if($requete->execute()) { 
             $message = "Régions ajouté";  
@@ -163,7 +163,7 @@ class modele_region {
 
         
 
-        $requete->bind_param("is",$id, $nom);
+        $requete->bind_param("si", $nom, $id);
 
         if($requete->execute()) { 
             $message = "Région modifié";  

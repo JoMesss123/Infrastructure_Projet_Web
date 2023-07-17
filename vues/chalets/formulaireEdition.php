@@ -19,9 +19,9 @@
 
         <div>
             <div>
-                <label for="personne_max">Nombre de personne maximun*</label>
+                <label for="personnes_max">Nombre de personne maximun*</label>
                 
-                <input type="number" step="1" id="personne_max" name="personne_max" required value="<?= $chalet->personne_max ?>">
+                <input type="number" step="1" id="personnes_max" name="personnes_max" required value="<?= $chalet->personnes_max ?>">
             </div>
             <div>
                 <label for="prix_haute_saison">Prix de la haute saison *</label>
@@ -51,7 +51,10 @@
             <div>
                 <label for="fk_region">Région *</label>
                 
-                <input type="number" step="1" id="fk_region" name="fk_region" required value="<?= $chalet->fk_region ?>">
+                <?php
+                $controlleurRegion=new ControlleurRegion;
+                $controlleurRegion->afficherListeDeroulanteRegion();
+            ?>
             </div>
             <div>
                 <label for="id_picsum">picsum *</label>
@@ -60,7 +63,7 @@
             </div>
         </div>
 
-        <button name="boutonEditier" type="submit">Modifier le chalet</button><br>
+        <button name="boutonEditer" type="submit">Modifier le chalet</button><br>
     </form>                         
 </div>
 

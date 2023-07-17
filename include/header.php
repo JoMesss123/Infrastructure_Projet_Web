@@ -62,18 +62,7 @@
           <ul>
             <li><a href="liste_activite.php">Activitées</a></li>
             <li><a href="liste_avis.php">Avis</a></li>
-            <?php
-            if(!isset($_SESSION["utilisateur"])) {
-           
-            ?>
             
-            <?php
-             } else {
-              ?>
-            <li><a href="liste_avis.php">Avis</a></li>
-            <?php
-            }
-              ?>
 
           </ul>
         </li>

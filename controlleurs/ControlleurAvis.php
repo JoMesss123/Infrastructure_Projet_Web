@@ -26,6 +26,11 @@ class ControlleurAvis {
         require './vues/avis/tableau-avec-bouton-actions.php';
     }
 
+    function afficherTableauAvecBoutonsActionUtilisateur() {
+        $avis = modele_avis::ObtenirTousUnUtilisateur();
+        require './vues/avis/tableau-avec-bouton-actions-utilisateur.php';
+    }
+
     function afficherFiche() {
         if(isset($_GET["id"])) {
             $avis = modele_avis::ObtenirUn($_GET["id"]);
@@ -82,8 +87,8 @@ class ControlleurAvis {
 
     
     function ajouter() {
-        if(isset($_GET['id'],$_POST['nom']) && isset($_POST['prenom']) && isset($_POST['date_avis']) && isset($_POST['description']) && isset($_POST['id_activite'])) {
-            $message = modele_avis::ajouter($_GET['id'],$_POST['nom'], $_POST['prenom'], $_POST['date_avis'], $_POST['description'], $_POST['id_activite']);
+        if(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['date_avis']) && isset($_POST['description']) && isset($_POST['id_activite']) && isset($_POST['utilisateur']) ) {
+            $message = modele_avis::ajouter($_POST['nom'], $_POST['prenom'], $_POST['date_avis'], $_POST['description'], $_POST['id_activite'],  $_POST['utilisateur']);
             echo $message;
         } else {
             $erreur = "Impossible d'ajouter un avis. Des informations sont manquantes";
@@ -93,8 +98,8 @@ class ControlleurAvis {
 
    
     function editer() {
-        if(isset($_GET['id'],$_POST['nom']) && isset($_POST['prenom']) && isset($_POST['date_avis']) && isset($_POST['description']) && isset($_POST['id_activite'])) {
-            $message = modele_avis::editer($_GET['id'],$_POST['nom'], $_POST['prenom'], $_POST['date_avis'], $_POST['description'], $_POST['id_activite']);
+        if(isset($_GET['id'],$_POST['nom']) && isset($_POST['prenom']) && isset($_POST['date_avis']) && isset($_POST['description']) && isset($_POST['id_activite']) && isset($_POST['utilisateur'])) {
+            $message = modele_avis::editer($_GET['id'],$_POST['nom'], $_POST['prenom'], $_POST['date_avis'], $_POST['description'], $_POST['id_activite'],  $_POST['utilisateur']);
             echo $message;
         } else {
             $erreur = "Impossible de modifier l'avis'. Des informations sont manquantes";

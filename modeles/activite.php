@@ -154,17 +154,17 @@ class modele_activite {
     
 
    
-    public static function ajouter($id, $nom_activite, $description_activite, $hiver_activite, $ete_activite, $fk_region) {
+    public static function ajouter( $nom_activite, $description_activite, $hiver_activite, $ete_activite, $fk_region) {
         $message = '';
 
         $mysqli = self::connecter();
         
        
-        if ($requete = $mysqli->prepare("INSERT INTO activites(id, nom_activite, description_activite, hiver_activite, ete_activite,  fk_region) VALUES(?, ?, ?, ?, ?, ?)")) {      
+        if ($requete = $mysqli->prepare("INSERT INTO activites( nom_activite, description_activite, hiver_activite, ete_activite,  fk_region) VALUES(?, ?, ?, ?, ?, ?)")) {      
 
 
 
-        $requete->bind_param("issiii",$id, $nom_activite, $description_activite, $hiver_activite, $ete_activite, $fk_region);
+        $requete->bind_param("ssiiii", $nom_activite, $description_activite, $hiver_activite, $ete_activite, $fk_region, $id);
 
         if($requete->execute()) { 
             $message = "Activitée ajouté";  

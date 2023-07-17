@@ -39,12 +39,14 @@
 	?>
 
 	<h1> Activités</h1>
+	<? require 'ajout_activite.php'; ?>
 	<?php
 	$ControlleurActivite=new ControlleurActivite;
 	$ControlleurActivite->afficherTableauAvecBoutonsAction();
 	?>
 
 	<h1> Régions</h1>
+	<? require 'ajout_region.php'; ?>
 	<?php
 	$ControlleurRegion=new ControlleurRegion;
 	$ControlleurRegion->afficherTableauAvecBoutonsAction();

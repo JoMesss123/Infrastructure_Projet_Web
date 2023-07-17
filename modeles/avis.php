@@ -9,17 +9,24 @@ class modele_avis {
     public $date_avis;
     public $description;    
     public $id_activite;
+    public $utilisateur;
+
     public $nom_activite;
 
+  
+
+    
 
 
-    public function __construct($id, $nom, $prenom, $date_avis, $description, $id_activite) {
+    public function __construct($id, $nom, $prenom, $date_avis, $description, $id_activite, $utilisateur) {
         $this->id = $id;
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->date_avis = $date_avis;
         $this->description = $description;
         $this->id_activite = $id_activite;
+        $this->utilisateur = $utilisateur;
+
         $this->nom_activite = $this->getNomActivite($id_activite);
 
     }
@@ -72,25 +79,41 @@ class modele_avis {
         $liste = [];
         $mysqli = self::connecter();
 
-        $resultatRequete = $mysqli->query("SELECT id, nom, prenom, date_avis, description, id_activite FROM avis ORDER BY  id_activite");
+        $resultatRequete = $mysqli->query("SELECT id, nom, prenom, date_avis, description, id_activite, utilisateur FROM avis ORDER BY  id_activite");
 
         foreach ($resultatRequete as $enregistrement) {
-            $liste[] = new modele_avis($enregistrement['id'], $enregistrement['nom'], $enregistrement['prenom'],$enregistrement['date_avis'], $enregistrement['description'], $enregistrement['id_activite']);
+            $liste[] = new modele_avis($enregistrement['id'], $enregistrement['nom'], $enregistrement['prenom'],$enregistrement['date_avis'], $enregistrement['description'], $enregistrement['id_activite'], $enregistrement['utilisateur']);
         }
 
         return $liste;
     }
 
+    static function ObtenirTousUnUtilisateur() {
+        $liste = [];
+        $mysqli = self::connecter();
+        
+        
+      
+    
+        $resultatRequete = $mysqli->query("SELECT id, nom, prenom, date_avis, description, id_activite, utilisateur FROM avis WHERE utilisateur  ORDER BY id_activite");
+    
+        foreach ($resultatRequete as $enregistrement) {
+            $liste[] = new modele_avis($enregistrement['id'], $enregistrement['nom'], $enregistrement['prenom'], $enregistrement['date_avis'], $enregistrement['description'], $enregistrement['id_activite'], $enregistrement['utilisateur']);
+        }
+    
+        return $liste;
+    }
+    
    
 
     public static function ObtenirTousActivite() {
         $liste = [];
         $mysqli = self::connecter();
 
-        $resultatRequete = $mysqli->query("SELECT id, nom, prenom, date_avis, description, id_activite FROM avis  WHERE id_activite=? ORDER BY nom");
+        $resultatRequete = $mysqli->query("SELECT id, nom, prenom, date_avis, description, id_activite, utilisateur FROM avis  WHERE id_activite=? ORDER BY nom");
 
         foreach ($resultatRequete as $enregistrement) {
-            $liste[] = new modele_avis($enregistrement['id'], $enregistrement['nom'], $enregistrement['prenom'],$enregistrement['date_avis'], $enregistrement['description'], $enregistrement['id_activite']);
+            $liste[] = new modele_avis($enregistrement['id'], $enregistrement['nom'], $enregistrement['prenom'],$enregistrement['date_avis'], $enregistrement['description'], $enregistrement['id_activite'], $enregistrement['utilisateur']);
         }
 
         return $liste;
@@ -108,7 +131,7 @@ class modele_avis {
             $result = $requete->get_result(); 
             
             if($enregistrement = $result->fetch_assoc()) { 
-                $avis = new modele_avis($enregistrement['id'], $enregistrement['nom'], $enregistrement['prenom'],$enregistrement['date_avis'], $enregistrement['description'], $enregistrement['id_activite']);
+                $avis = new modele_avis($enregistrement['id'], $enregistrement['nom'], $enregistrement['prenom'],$enregistrement['date_avis'], $enregistrement['description'], $enregistrement['id_activite'], $enregistrement['utilisateur']);
             } else {
                 
                 return null;
@@ -133,7 +156,7 @@ class modele_avis {
             $result = $requete->get_result(); 
     
             if($enregistrement = $result->fetch_assoc()) { 
-                $avis = new modele_avis($enregistrement['id'], $enregistrement['nom'], $enregistrement['prenom'],$enregistrement['date_avis'], $enregistrement['description'], $enregistrement['id_activite']);
+                $avis = new modele_avis($enregistrement['id'], $enregistrement['nom'], $enregistrement['prenom'],$enregistrement['date_avis'], $enregistrement['description'], $enregistrement['id_activite'],  $enregistrement['utilisateur']);
             } else {
                 return null;
             }   
@@ -152,17 +175,17 @@ class modele_avis {
     
 
    
-    public static function ajouter($id, $nom, $prenom, $date_avis, $description, $id_activite) {
+    public static function ajouter(  $nom, $prenom, $date_avis, $description, $id_activite, $utilisateur) {
         $message = '';
 
         $mysqli = self::connecter();
         
        
-        if ($requete = $mysqli->prepare("INSERT INTO avis(id, nom, prenom, date_avis, description, id_activite) VALUES(?, ?, ?, ?, ?, ?)")) {      
+        if ($requete = $mysqli->prepare("INSERT INTO avis( nom, prenom, date_avis, description, id_activite, utilisateur) VALUES( ?, ?, ?, ?, ?, ?)")) {      
 
 
 
-        $requete->bind_param("issssi",$id, $nom, $prenom, $date_avis, $description, $id_activite);
+        $requete->bind_param("ssssii", $nom, $prenom, $date_avis, $description, $id_activite, $utilisateur);
 
         if($requete->execute()) { 
             $message = "Avis ajouté";  
@@ -183,17 +206,17 @@ class modele_avis {
     }
 
    
-    public static function editer($id, $nom, $prenom, $date_avis, $description, $id_activite) {
+    public static function editer($id, $nom, $prenom, $date_avis, $description, $id_activite, $utilisateur) {
         $message = '';
 
         $mysqli = self::connecter();
         
        
-        if ($requete = $mysqli->prepare("UPDATE avis SET nom=?, prenom=?, date_avis=?, dexcription=?, id_activite=?  WHERE id=?")) {      
+        if ($requete = $mysqli->prepare("UPDATE avis SET nom=?, prenom=?, date_avis=?, dexcription=?, id_activite=?, utilisateur=?  WHERE id=?")) {      
 
         
 
-        $requete->bind_param("issssi",$id, $nom, $prenom, $date_avis, $description, $id_activite);
+        $requete->bind_param("issssii",$id, $nom, $prenom, $date_avis, $description, $id_activite, $utilisateur);
 
         if($requete->execute()) { 
             $message = "avis modifié";  

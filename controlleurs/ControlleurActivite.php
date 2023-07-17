@@ -10,6 +10,12 @@ class ControlleurActivite {
         require './vues/activite/liste.php';
     }
 
+    function afficherListeDeroulanteActivite() {
+        $activite = modele_activite::ObtenirTous();
+        require  __DIR__ . '/../vues/activite/liste-deroulante.php';
+    }
+
+
   
     function afficherTableau() {
         $activite = modele_activite::ObtenirTous();
@@ -82,8 +88,8 @@ class ControlleurActivite {
 
     
     function ajouter() {
-        if(isset($_GET['id'],$_POST['nom_activite']) && isset($_POST['description_activite']) && isset($_POST['hiver_activite']) && isset($_POST['ete_activite']) && isset($_POST['fk_region'])) {
-            $message = modele_activite::ajouter($_GET['id'],$_POST['nom_activite'], $_POST['description_activite'], $_POST['hiver_activite'], $_POST['ete_activite'], $_POST['fk_region']);
+        if(isset($_POST['nom_activite']) && isset($_POST['description_activite']) && isset($_POST['hiver_activite']) && isset($_POST['ete_activite']) && isset($_POST['fk_region'])) {
+            $message = modele_activite::ajouter($_POST['nom_activite'], $_POST['description_activite'], $_POST['hiver_activite'], $_POST['ete_activite'], $_POST['fk_region']);
             echo $message;
         } else {
             $erreur = "Impossible d'ajouter un activité. Des informations sont manquantes";

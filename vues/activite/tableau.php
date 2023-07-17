@@ -1,5 +1,5 @@
 <!-- Affichage en mode "tableau" -->
-<h2>Affichage en mode "tableau"</h2>
+
 <table>
     <tr>
         <th>nom</th>        

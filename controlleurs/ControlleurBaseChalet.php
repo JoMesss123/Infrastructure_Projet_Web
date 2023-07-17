@@ -90,8 +90,8 @@ class ControlleurBaseChalet {
 
     
     function ajouter() {
-        if(isset($_POST['nom']) && isset($_POST['description']) && isset($_POST['personne_max']) && isset($_POST['prix_haute_saison']) && isset($_POST['prix_basse_saison']) && isset($_POST['actif']) && isset($_POST['promo ']) && isset($_POST['date_inscription']) && isset($_POST['fk_region']) && isset($_POST['id_picsum'])) {
-            $message = modele_chalet::ajouter($_POST['nom'], $_POST['description'], $_POST['personne_max'], $_POST['prix_haute_saison'], $_POST['prix_basse_saison'], $_POST['actif'], $_POST['promo '], $_POST['date_inscription'], $_POST['fk_region'], $_POST['id_picsum']);
+        if(isset($_POST['nom']) && isset($_POST['description']) && isset($_POST['personnes_max']) && isset($_POST['prix_haute_saison']) && isset($_POST['prix_basse_saison']) && isset($_POST['actif']) && isset($_POST['promo']) && isset($_POST['date_inscription']) && isset($_POST['fk_region']) && isset($_POST['id_picsum'])) {
+            $message = modele_chalet::ajouter($_POST['nom'], $_POST['description'], $_POST['personnes_max'], $_POST['prix_haute_saison'], $_POST['prix_basse_saison'], $_POST['actif'], $_POST['promo'], $_POST['date_inscription'], $_POST['fk_region'], $_POST['id_picsum']);
             echo $message;
         } else {
             $erreur = "Impossible d'ajouter un chalet. Des informations sont manquantes";
@@ -101,8 +101,8 @@ class ControlleurBaseChalet {
 
    
     function editer() {
-        if(isset($_GET['id'], $_POST['nom']) && isset($_POST['description']) && isset($_POST['personne_max']) && isset($_POST['prix_haute_saison']) && isset($_POST['prix_basse_saison']) && isset($_POST['actif']) && isset($_POST['promo ']) && isset($_POST['date_inscription']) && isset($_POST['fk_region']) && isset($_POST['id_picsum'])) {
-            $message = modele_chalet::editer($_GET['id'],$_POST['nom'], $_POST['description'], $_POST['personne_max'], $_POST['prix_haute_saison'], $_POST['prix_basse_saison'], $_POST['actif'], $_POST['promo '], $_POST['date_inscription'], $_POST['fk_region'], $_POST['id_picsum']);
+        if(isset($_GET['id'], $_POST['nom']) && isset($_POST['description']) && isset($_POST['personnes_max']) && isset($_POST['prix_haute_saison']) && isset($_POST['prix_basse_saison']) && isset($_POST['actif']) && isset($_POST['promo']) && isset($_POST['date_inscription']) && isset($_POST['fk_region']) && isset($_POST['id_picsum'])) {
+            $message = modele_chalet::editer($_GET['id'],$_POST['nom'], $_POST['description'], $_POST['personnes_max'], $_POST['prix_haute_saison'], $_POST['prix_basse_saison'], $_POST['actif'], $_POST['promo'], $_POST['date_inscription'], $_POST['fk_region'], $_POST['id_picsum']);
             echo $message;
         } else {
             $erreur = "Impossible de modifier le chalet. Des informations sont manquantes";

@@ -49,6 +49,24 @@ class modele_chalet {
         if ($enregistrement = $result->fetch_assoc()) {
              return $enregistrement['nom'];
             }
+                }            
+        
+               
+        return '';
+            }
+        
+    private function getNomActivite($id_activite) {      
+       $mysqli = self::connecter();
+        if ($requete = $mysqli->prepare("SELECT nom_activite FROM activites WHERE id = ?")) {
+            $requete->bind_param("i", $id_activite);
+
+            $requete->execute(); 
+
+        $result = $requete->get_result();
+
+        if ($enregistrement = $result->fetch_assoc()) {
+             return $enregistrement['nom_activite'];
+            }
                 }
         
                 
@@ -56,7 +74,6 @@ class modele_chalet {
                
         return '';
             }
-        
 
         
 
@@ -233,7 +250,7 @@ class modele_chalet {
 
         
 
-        $requete->bind_param("issiiiiisii",$id, $nom, $description, $personnes_max, $prix_haute_saison, $prix_basse_saison, $actif, $promo, $date_inscription, $fk_region, $id_picsum);
+        $requete->bind_param("ssiiiiisiii", $nom, $description, $personnes_max, $prix_haute_saison, $prix_basse_saison, $actif, $promo, $date_inscription, $fk_region, $id_picsum, $id);
 
         if($requete->execute()) { 
             $message = "chalet modifié";  

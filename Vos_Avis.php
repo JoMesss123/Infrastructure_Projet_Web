@@ -1,13 +1,13 @@
 <?php
     require_once 'controlleurs/ControlleurAvis.php';
-?>
+  ?>
 
 
 <?php include_once(__DIR__ . './include/header.php'); ?>
 
   <main>
-  
-	<h1>Administration - Module personnel</h1>
+
+	<h1>Administration de vos Avis</h1>
 	<?php
  		if(!isset($_SESSION["utilisateur"])) {
  		 
@@ -16,9 +16,10 @@
 	 <? require 'vues/authentification/formulaire_authentification.php'; ?>
  	
  	<?php } else { ?>
+		<? require 'ajout_avis.php'; ?>
 		<?php
         $ControlleurAvis=new ControlleurAvis;
-        $ControlleurAvis->afficherTableauAvecBoutonsAction();
+        $ControlleurAvis->afficherTableauAvecBoutonsActionUtilisateur();
     ?>
  	
  	<?php } ?>

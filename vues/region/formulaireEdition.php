@@ -5,13 +5,13 @@
             <div>
                 <label for="nom">Nom *</label>
                
-                <input type="text" id="nom" name="nom" required maxlength="25" value="<?= $chalet->nom ?>">
+                <input type="text" id="nom" name="nom" required maxlength="50" value="<?= $region->nom ?>">
             </div>
            
         </div>
 
         
 
-        <button name="boutonEditer" type="submit">Modifier le chalet</button><br>
+        <button name="boutonEditer" type="submit">Modifier la région</button><br>
     </form>                         
 </div>
