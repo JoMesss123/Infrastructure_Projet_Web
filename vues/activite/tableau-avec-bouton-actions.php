@@ -21,11 +21,11 @@
             <td><?= $activite->nom_region ?></td>
 
             <td>
-                <a href="fiche_chalet.php?id=<?= $chalets->id ?>">Afficher</a>
+                <a href="fiche_activite.php?id=<?= $activite->id ?>">Afficher</a>
                 | 
-                <a href="edition_chalet.php?id=<?= $chalets->id ?>">Modifier</a> 
+                <a href="edition_activite.php?id=<?= $activite->id ?>">Modifier</a> 
                 | 
-                <a href="suppression_chalet.php?id=<?= $chalets->id ?>">Supprimer</a>
+                <a href="suppression_activite.php?id=<?= $activite->id ?>">Supprimer</a>
             </td>
         </tr>
     <?php

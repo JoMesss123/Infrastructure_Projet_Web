@@ -160,11 +160,11 @@ class modele_activite {
         $mysqli = self::connecter();
         
        
-        if ($requete = $mysqli->prepare("INSERT INTO activites( nom_activite, description_activite, hiver_activite, ete_activite,  fk_region) VALUES(?, ?, ?, ?, ?, ?)")) {      
+        if ($requete = $mysqli->prepare("INSERT INTO activites( nom_activite, description_activite, hiver_activite, ete_activite,  fk_region) VALUES(?, ?, ?, ?, ?)")) {      
 
 
 
-        $requete->bind_param("ssiiii", $nom_activite, $description_activite, $hiver_activite, $ete_activite, $fk_region, $id);
+        $requete->bind_param("ssiii", $nom_activite, $description_activite, $hiver_activite, $ete_activite, $fk_region);
 
         if($requete->execute()) { 
             $message = "Activitée ajouté";  

@@ -3,14 +3,14 @@
     <form method="POST">
         <div>
             <div>
-                <label for="nom">Nom *</label>
+                <label for="nom_activite">Nom *</label>
                
-                <input type="text" id="nom" name="nom" required maxlength="25" value="<?= $activite->nom_activite ?>">
+                <input type="text" id="nom_activite" name="nom_activite" required maxlength="25" value="<?= $activite->nom_activite ?>">
             </div>
             <div>
-                <label for="desciption">Description *</label>
+                <label for="description_activite">Description *</label>
 
-                <input type="text" id="description" name="description" required minlength="2"  value="<?= $activite->description_activite ?>">
+                <input type="text" id="description_activite" name="description_activite" required minlength="2"  value="<?= $activite->description_activite ?>">
             </div>
         </div>
 
@@ -29,7 +29,10 @@
             <div>
                 <label for="fk_region">Région *</label>
                 
-                <input type="number" step="1" id="fk_region" name="fk_region" required value="<?= $activite->fk_region ?>">
+                <?php
+                $controlleurRegion=new ControlleurRegion;
+                $controlleurRegion->afficherListeDeroulanteRegion();
+            ?>
             </div>
         </div>
 
