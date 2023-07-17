@@ -28,11 +28,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style/css/script.css">
-  <link rel="stylesheet" href="style/css/normalize.css">
+  <meta name="description " content="Les Chalets Québécois-test de manipulation de base de donnée">
+  <meta name="author" content="Jonathan Claes">
+  
   
 
 
@@ -105,6 +103,8 @@
       </ul>
 
       <!-- Formulaire de connexion -->
+      <div class="connexion">
+       
       <?php
       if(!isset($_SESSION["utilisateur"])) {
         ?>
@@ -118,6 +118,7 @@
       }
       ?>
       <? require 'vues/authentification/formulaire_authentification_admin.php'; ?>
+      </div>
     </nav>
     <hr>
   </header>
