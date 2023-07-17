@@ -7,5 +7,5 @@
 </div>
 
 <form method="POST">
-    <button name="boutonSupprimer" type="submit">Supprimer l'activitée</button><br>
+    <button name="boutonSupprimer" type="submit">Supprimer l'activité</button><br>
 </form>

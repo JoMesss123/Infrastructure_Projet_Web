@@ -30,6 +30,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style/css/script.css">
+  <link rel="stylesheet" href="style/css/normalize.css">
+  
 
 
   <title>Titre de la page (défi! rendre ce titre dynamique selon la page sélectionnée)</title>
