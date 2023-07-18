@@ -63,7 +63,7 @@
           </li>
           <li><a href="liste_chalets_en_promotion.php">Chalets en promotion</a></li>
           <li>
-            <a href="liste_activite_index.php">Activitées &nbsp;<i class="arrow down"></i></a>
+            <a href="liste_activite_index.php">Activités &nbsp;<i class="arrow down"></i></a>
             <ul>
               <li><a href="liste_activite.php">Activitées</a></li>
               <li><a href="liste_avis.php">Avis</a></li>
