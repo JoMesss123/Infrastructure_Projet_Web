@@ -2,7 +2,7 @@
     require_once 'controlleurs/ControlleurBaseChalet.php';
 ?>
 
-<?php include_once(__DIR__ . './include/header.php'); ?>
+<?php include_once(__DIR__ . '/include/header.php'); ?>
 
 <main>
     <h1>Les Chalets du Québec</h1>
@@ -80,4 +80,4 @@
 
 </main>
 
-<?php include_once(__DIR__ . './include/footer.php'); ?>
+<?php include_once(__DIR__ . '/include/footer.php'); ?>

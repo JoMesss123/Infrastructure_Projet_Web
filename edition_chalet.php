@@ -8,7 +8,7 @@
     } 
 ?>
 
-<?php include_once(__DIR__ . './include/header.php'); ?>
+<?php include_once(__DIR__ . '/include/header.php'); ?>
 
 <main>
    <h1>Formulaire d'édition d'un chalet</h1>
@@ -21,4 +21,4 @@
 
 </main>
 
-<?php include_once(__DIR__ . './include/footer.php'); ?>
+<?php include_once(__DIR__ . '/include/footer.php'); ?>

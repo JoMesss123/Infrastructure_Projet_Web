@@ -2,7 +2,7 @@
     require_once 'controlleurs/ControlleurActivite.php';
 ?>
 
-<?php include_once(__DIR__ . './include/header.php'); ?>
+<?php include_once(__DIR__ . '/include/header.php'); ?>
 
 <main>
     <h1>Les activitées dans les régions de nos chalets</h1>
@@ -79,4 +79,4 @@
 
 </main>
 
-<?php include_once(__DIR__ . './include/footer.php'); ?>
+<?php include_once(__DIR__ . '/include/footer.php'); ?>
