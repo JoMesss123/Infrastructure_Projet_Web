@@ -13,12 +13,17 @@ body {
     background-image: url('../img/background.jpg');
     background-repeat: no-repeat;
    background-position: center;
-    background-size: cover;   
+   background-color: #030303;
+       
    
     
     
 }
 
+.image-fiche{
+    width: 90%;
+   
+}
 
 /* thèmes */
 .dark-mode, .dark-mode header {
