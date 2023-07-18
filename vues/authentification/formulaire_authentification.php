@@ -28,9 +28,10 @@
 <?php } else { ?>
     
     <form method="POST">
-        Vous êtes connecté en tant que <?= $_SESSION["utilisateur"] ?> 
+    
         
         <button name="boutonDeconnexion" type="submit">Déconnexion</button>
+        <div class="user"><?= $_SESSION["utilisateur"] ?> </div>
     </form>
 <?php } ?>
 
