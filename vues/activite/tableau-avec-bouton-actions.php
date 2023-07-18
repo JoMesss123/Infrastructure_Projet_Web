@@ -7,6 +7,7 @@
         <th>activité hivernale</th>        
         <th>activité estival</th>       
         <th>region</th>
+        <th></th>
 
     </tr>
 

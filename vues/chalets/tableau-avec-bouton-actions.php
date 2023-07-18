@@ -11,6 +11,7 @@
         <th>date inscription</th>
         <th>fk region</th>
         <th>id picsum</th>
+        <th></th>
 
     </tr>
 

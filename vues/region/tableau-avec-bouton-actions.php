@@ -1,7 +1,8 @@
 
 <table>
     <tr>
-        <th>nom</th>        
+        <th>nom</th> 
+        <th></th>       
         
 
     </tr>
@@ -11,6 +12,7 @@
     ?>
         <tr>
             <td><?= $region->nom ?></td>
+            
             <td>
                 <a href="fiche_region.php?id=<?= $region->id ?>">Afficher</a>
                 | 

@@ -12,6 +12,7 @@
         <th>promo</th>
         <th>date inscription</th>
         <th>region</th>
+        <th></th>
 
     </tr>
     <?php

@@ -8,6 +8,7 @@
         <th>description</th>       
         <th>activite</th>
         <th>utilisateur</th>
+        <th></th>
 
     </tr>
 

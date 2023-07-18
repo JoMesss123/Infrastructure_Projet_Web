@@ -28,9 +28,10 @@
 <?php } else { ?>
     
     <form method="POST">
-        Vous êtes connecté en tant qu'administrateur <?= $_SESSION["administrateur"] ?> 
         
-        <button name="boutonDeconnexion" type="submit">Déconnexion</button>
+        <button name="boutonDeconnexion" type="submit">Déconnexion</button> 
+        <div class="user"><?= $_SESSION["administrateur"] ?> </div>
+        
     </form>
 <?php } ?>
 

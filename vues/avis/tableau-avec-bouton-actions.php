@@ -7,6 +7,7 @@
         <th>date_avis</th>        
         <th>description</th>       
         <th>activite</th>
+        <th></th>
 
     </tr>
 

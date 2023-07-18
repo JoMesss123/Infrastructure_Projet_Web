@@ -6,6 +6,7 @@
         <th>date de l'avis</th>        
         <th>description</th>       
         <th>l'activitée</th>
+        <th></th>
 
     </tr>
 
